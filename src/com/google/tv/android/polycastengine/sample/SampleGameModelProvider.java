@@ -26,6 +26,7 @@ public class SampleGameModelProvider implements GameModelProvider {
     public List<GameModel> getModels(ShaderPackage shaderPackage) {
         if (mModels.size()==0) {
             // TODO load / create models
+//            GameModel loadModel = mLoader.loadModel("models/sample/triangle.model");
             GameModel loadModel = mLoader.loadModel("models/sample/square.model");
             loadModel.initialize();
             mModels.add(loadModel);

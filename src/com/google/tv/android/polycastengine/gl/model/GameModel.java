@@ -91,7 +91,8 @@ public class GameModel implements GameRenderable {
         if(C.DEBUG) {
             Log.d(C.TAG, ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
             Log.d(C.TAG, "position handle: " + mPositionHandle);
-            Log.d(C.TAG, "vertex buffer: " + mPositionHandle);
+            Log.d(C.TAG, "vertex buffer: " + vertexBuffer);
+            Log.d(C.TAG, "draw buffer: " + drawListBuffer);
             Log.d(C.TAG, ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         }
         // Prepare the model coordinate data
@@ -104,8 +105,10 @@ public class GameModel implements GameRenderable {
         // Set color for drawing the triangle
         GLES20.glUniform4fv(mColorHandle, 1, mColors, 0);
 
-        // Draw the triangle
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, vertexCount);
+        // Draw the model
+//        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, vertexCount);
+//        GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, vertexCount);
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLE_FAN, 0, vertexCount);
 
         // Disable vertex array
         GLES20.glDisableVertexAttribArray(mPositionHandle);
